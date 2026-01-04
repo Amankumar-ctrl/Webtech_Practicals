@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Object Property Iteration (for...in)</title>
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; padding: 20px; }
+    button { padding: 8px 12px; cursor: pointer; }
+    ul { margin-top: 12px; }
+    li { margin: 4px 0; }
+  </style>
+</head>
+<body>
+  <h1>Object Property Iteration (for...in)</h1>
+
+  <button id="showPropertiesBtn">Show Object Properties</button>
+  <div id="output" aria-live="polite"></div>
+
+  <script>
+    
+    const person = {
+      name: "Aisha",
+      age: 24,
+      city: "Pune",
+      role: "Developer"
+    };
+
+    const btn = document.getElementById("showPropertiesBtn");
+    const output = document.getElementById("output");
+
+    btn.addEventListener("click", () => {
+      
+      output.textContent = "";
+
+      const list = document.createElement("ul");
+
+      
+      for (const key in person) {
+        
+        if (Object.hasOwn(person, key)) {
+          const item = document.createElement("li");
+          item.textContent = `${key}: ${person[key]}`;
+          list.appendChild(item);
+        }
+      }
+
+      output.appendChild(list);
+    });
+  </script>
+</body>
+</html>

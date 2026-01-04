@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Neon Number Checker</title>
+</head>
+<body>
+  <h2>Check if a Number is Neon</h2>
+  
+  <label for="num">Enter a number:</label>
+  <input type="number" id="num"><br><br>
+  
+  <button onclick="checkNeon()">Check</button>
+  
+  <p id="result"></p>
+  
+  <script>
+    
+    function isNeonNumber(n) {
+      let square = n * n;
+      let sum = 0;
+      
+      
+      while (square > 0) {
+        sum += square % 10;
+        square = Math.floor(square / 10);
+      }
+      
+      return sum === n;
+    }
+
+    function checkNeon() {
+      let num = parseInt(document.getElementById("num").value);
+      
+      if (isNaN(num) || num < 0) {
+        document.getElementById("result").innerText = "Please enter a valid positive integer.";
+        return;
+      }
+      
+      if (isNeonNumber(num)) {
+        document.getElementById("result").innerText = num + " is a Neon Number!";
+      } else {
+        document.getElementById("result").innerText = num + " is NOT a Neon Number.";
+      }
+    }
+  </script>
+</body>
+</html>

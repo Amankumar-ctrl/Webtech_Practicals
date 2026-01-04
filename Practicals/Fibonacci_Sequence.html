@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fibonacci Sequence Generator</title>
+</head>
+<body>
+  <h2>Fibonacci Sequence Up to n Terms</h2>
+  
+  <label for="num">Enter number of terms (n):</label>
+  <input type="number" id="num"><br><br>
+  
+  <button onclick="generateFibonacci()">Generate</button>
+  
+  <p id="result"></p>
+  
+  <script>
+    
+    function fibonacci(n) {
+      let sequence = [];
+      let a = 0, b = 1;
+      
+      if (n >= 1) sequence.push(a);
+      if (n >= 2) sequence.push(b);
+      
+      for (let i = 3; i <= n; i++) {
+        let next = a + b;
+        sequence.push(next);
+        a = b;
+        b = next;
+      }
+      
+      return sequence;
+    }
+
+    function generateFibonacci() {
+      let n = parseInt(document.getElementById("num").value);
+      
+      if (isNaN(n) || n <= 0) {
+        document.getElementById("result").innerText = "Please enter a positive integer.";
+        return;
+      }
+      
+      let sequence = fibonacci(n);
+      document.getElementById("result").innerText = "Fibonacci sequence up to " + n + " terms: " + sequence.join(", ");
+    }
+  </script>
+</body>
+</html>

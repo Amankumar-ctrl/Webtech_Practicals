@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Duck Number Checker</title>
+</head>
+<body>
+  <h2>Duck Number Checker</h2>
+  
+  
+  <label for="num">Enter a number:</label>
+  <input type="text" id="num" placeholder="e.g. 1023">
+  <button onclick="checkDuckNumber()">Check</button>
+  
+  <p id="result"></p>
+
+  <script>
+    function checkDuckNumber() {
+      let num = document.getElementById("num").value;
+
+      if (isNaN(num) || num.trim() === "") {
+        document.getElementById("result").innerText = "Please enter a valid number.";
+        return;
+      }
+
+      if (num.includes("0") && num[0] !== "0") {
+        document.getElementById("result").innerText = num + " is a Duck Number ";
+      } else {
+        document.getElementById("result").innerText = num + " is NOT a Duck Number ";
+      }
+    }
+  </script>
+</body>
+</html>

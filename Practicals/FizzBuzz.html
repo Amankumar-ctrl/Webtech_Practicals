@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FizzBuzz Program</title>
+</head>
+<body>
+  <h2>FizzBuzz from 1 to 100</h2>
+  <div id="fizzbuzz-output"></div>
+
+  <h2>Sample Numbers</h2>
+  <div id="sample-output"></div>
+
+  <script>
+    function fizzBuzz(num) {
+      if (num % 3 === 0 && num % 5 === 0 && num !== 0) {
+        return "FizzBuzz";
+      } else if (num % 3 === 0 && num !== 0) {
+        return "Fizz";
+      } else if (num % 5 === 0 && num !== 0) {
+        return "Buzz";
+      } else {
+        return num;
+      }
+    }
+
+    let fizzbuzzResult = "";
+    for (let i = 1; i <= 100; i++) {
+      fizzbuzzResult += fizzBuzz(i) + "<br>";
+    }
+    document.getElementById("fizzbuzz-output").innerHTML = fizzbuzzResult;
+
+    let samples = [0, -1, 4];
+    let sampleResult = "";
+    for (let i = 0; i < samples.length; i++) {
+      sampleResult += fizzBuzz(samples[i]) + "<br>";
+    }
+    document.getElementById("sample-output").innerHTML = sampleResult;
+  </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Prime Number Checker</title>
+</head>
+<body>
+  <h2>Check Prime Number Using While Loop</h2>
+  
+  <label for="num">Enter a number:</label>
+  <input type="number" id="num"><br><br>
+  
+  <button onclick="checkPrime()">Check</button>
+  
+  <p id="result"></p>
+  
+  <script>
+    
+    function isPrime(n) {
+      if (n <= 1) return false; 
+      
+      let i = 2;
+      while (i <= Math.sqrt(n)) {
+        if (n % i === 0) {
+          return false;
+        }
+        i++;
+      }
+      return true;
+    }
+
+    
+    function checkPrime() {
+      let num = parseInt(document.getElementById("num").value);
+      
+      if (isNaN(num) || num < 0) {
+        document.getElementById("result").innerText = "Please enter a valid positive integer.";
+        return;
+      }
+      
+      if (isPrime(num)) {
+        document.getElementById("result").innerText = num + " is a Prime Number!";
+      } else {
+        document.getElementById("result").innerText = num + " is NOT a Prime Number.";
+      }
+    }
+  </script>
+</body>
+</html>
